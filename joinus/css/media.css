@@ -1081,6 +1081,16 @@
       .cult--expand{
         height: 3400px;
       }
-        
-
+}
+    
+@media screen and (max-width:414px){
+      .cult--expand{
+        height: 3470px;
+      }
+}
+    
+    @media screen and (max-width:370px){
+      .cult--expand{
+        height: 3530px;
+      }
 }

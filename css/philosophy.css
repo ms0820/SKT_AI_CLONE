@@ -21,7 +21,7 @@ height: 688px;text-align: center;overflow: hidden;max-width: 1280px;}
 .ph_slide_wrap .item img{position: absolute;min-height: 100%;min-width: 100%;left: -200%;right: -200%;top: -200%;bottom: -200%;margin: auto;width: auto;}
 #ph_slide .talk_box{position: absolute;top: 0;right: 0;width: 41.041666%;height: 690px;
 background-color: #f5b3ab;z-index: 10;}
-#ph_slide .talk_box .ment{position: relative;top: 50%;max-width: 470px;padding-left: 63px;transform: translateY(-48%);font-family:'Noto Serif', serif;font-size: 32px;line-height: 1.375;color: #fff;text-align: center;}
+#ph_slide .talk_box .ment{position: relative;top: 50%;max-width: 470px;padding-left: 63px;transform: translateY(-48%);font-family: 'Noto Serif', serif !important;font-size: 32px;line-height: 1.375;color: #fff;text-align: center;}
 #ph_slide .talk_box .owl-nav{position: absolute;bottom:-70px;left:46%;text-align: right;display:flex}
 #ph_slide .talk_box .owl-nav:after {display: block;clear: both;content: '';}
 .clearfix{display: block;clear: both;content: '';}
@@ -365,4 +365,39 @@ text-align: left;color: #fff;opacity:1;background-color: transparent;transition:
 
 @media screen and (max-width: 500px){
 	#ph_slide .talk_box .owl-nav{left:58%}
+}
+
+
+
+@media screen and (max-width: 414px){
+	#ph_slide {margin-top:30px}
+	.ph_slide_wrap{padding-top:64px;width: calc(100% - 28px) !important;}
+	#ph_slide .talk_box{width: calc(100% - 28px);
+    top: 250px;
+    padding: 40px 28px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto !important;} 
+	#ph_slide .talk_box p.ment {font-family:"Noto Serif KR", "Noto Serif", serif !important;padding: 0;
+    top: auto;
+    width: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    font-size: 18px;
+    line-height: 1.55556;
+    text-align: left;
+    }
+	#ph_slide .talk_box .owl-nav{    left: 70%;
+    bottom: -50px;}
+	.deco_strach{width:36px;height:60px}
+	.deco_4{bottom: -30%;right: 10.8%;}
+	.deco_1{display:none}
+	.deco_2{top: -150px;
+    right: 300px;}
+	.deco_3{top: -120px;
+    right: 300px;}
+	.round_blue2{width:36px;height:36px}
+	.round_yellow{width:36px;height:36px}
+	
 }

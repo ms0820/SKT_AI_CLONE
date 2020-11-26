@@ -70,6 +70,9 @@ scrollMove = presntScrollPosition - prevScrollPosition;
 
 x=window.matchMedia("(max-width:768px)");
 y=window.matchMedia("(max-width:1024px)");
+     
+     
+            if(prac == 0){
 
 
 if(x.matches){ //768이하
@@ -216,11 +219,306 @@ if (window.pageYOffset > 200)
 }  
 
 }
-
+            }
  }//스크롤할때이벤트들끝
 
 
     </script>
+<!--     
+    <script>
+        //리사이즈 이벤트들
+        x = window.matchMedia("(max-width:768px)");
+        y = window.matchMedia("(max-width:1024px)");
+        z = window.matchMedia("(max-width:)")
+        $(window).resize(function () {
+
+            if (x.matches) { //768이하
+                document.getElementById("gnb").style = "height:72px";
+                document.getElementById("gnb_wrap").style = "height:72px";
+                if (document.body.scrollTop > 72) {
+                    document.getElementById("gnb").style = "height:50px";
+                    document.getElementById("gnb_wrap").style = "height:50px";
+                }
+
+            }
+            else if (y.matches) { //1024이하
+                document.getElementById("gnb").style = "height:165px";
+                document.getElementById("gnb_wrap").style = "height:165px";
+                if (document.body.scrollTop > 150) {
+                    document.getElementById("gnb").style = "height:80px";
+                    document.getElementById("gnb_wrap").style = "height:80px";
+                }
+
+            }
+            else { //pc
+
+            }
+
+        });
+
+        ///다시 스크롤시이벤트들
+        var presntScrollPosition = 0;
+        var prevScrollPosition = 0;
+        window.onscroll = function () {
+            //console.log(window.pageYOffset);
+            //console.log (window.screenTop);
+
+            prevScrollPosition = presntScrollPosition;
+            presntScrollPosition = window.pageYOffset;
+
+            scrollMove = presntScrollPosition - prevScrollPosition;
+
+            x = window.matchMedia("(max-width:768px)");
+            y = window.matchMedia("(max-width:1024px)");
+            
+      
+            if(prac == 0){
+
+            if (x.matches) { //768이하
+                //768이하 평소에는
+                document.getElementById("gnb_wrap").style = "height:72px;";
+                document.getElementById("gnb").style = "height:72px;";
+                if (scrollMove < 0) { //스크롤업하면
+                    //스크롤업할때 이렇게해라
+                    document.getElementById("gnb_wrap").style = "height:50px;background-color: rgba(255, 255, 255, 0.95);";
+                    document.getElementById("gnb").style = "position:fixed;height:50px;background-color: rgba(255, 255, 255, 0.95);color: #333;transition: background-color 0.5s cubic-bezier(0.23, 1, 0.32, 1);"
+
+                    document.getElementById("gnb_logo_icon").style = "display:none";
+                    document.getElementById("top_menu_search").style = "color:#222;";
+                    document.getElementById("bugger_line1").style = "background:#222;";
+                    document.getElementById("bugger_line2").style = "background:#222;";
+                    if (window.pageYOffset < 72) //스크롤업하다가 0이되면
+                    {
+                        document.getElementById("gnb_wrap").style = "height:72px;background-color:none";
+                        document.getElementById("gnb").style = "height:72px;background-color:none";
+                        document.getElementById("logo_ai").style = "color:#333";
+                        document.getElementById("logo_dot").style = "color:#333";
+                        document.getElementById("gnb_top_menu").style = "top:50%";
+                        document.getElementById("gnb_logo_icon").style = "display:block";
+                        document.getElementById("logo_text_con").style = "animation:herotextin .5s ease-in-out forwards;";
+                        document.getElementById("top_menu_search").style = "color:#333;";
+                        document.getElementById("bugger_line1").style = "background:#333;";
+                        document.getElementById("bugger_line2").style = "background:#333;";
+
+                    }
+
+
+
+
+                }
+
+                if (scrollMove > 0) { //스크롤을 내릴때는
+                    if (window.pageYOffset > 72) {
+                        document.getElementById("gnb_wrap").style = "height:50px;background-color: rgba(255, 255, 255, 0.95);";
+                        document.getElementById("gnb").style = "position:fixed;height:50px;background-color: rgba(255, 255, 255, 0.95);color: #333;transition: background-color 0.5s cubic-bezier(0.23, 1, 0.32, 1);"
+
+                        document.getElementById("gnb_top_menu").style = "top:50%";
+                        document.getElementById("gnb_logo_icon").style = "display:none";
+                        document.getElementById("top_menu_search").style = "color:#222;";
+                        document.getElementById("bugger_line1").style = "background:#222;";
+                        document.getElementById("bugger_line2").style = "background:#222;";
+
+
+                    }
+
+
+                }
+
+            }
+            else if (y.matches) { //1024이하
+                if (scrollMove < 0) {
+                    if (window.pageYOffset <30) {
+                        document.getElementById("gnb_wrap").style = "height:165px;background-color:none";
+                        document.getElementById("gnb").style = "height:165px";
+                        document.getElementById("logo_ai").style = "color:#333";
+                        document.getElementById("logo_dot").style = "color:#333";
+                        // document.getElementById("logo").style="transform: none;margin-left:0px;";
+                        document.getElementById("gnb_top_menu").style = "top:50%";
+                        document.getElementById("gnb_logo_icon").style = "display:block";
+                        document.getElementById("logo_text_con").style = "animation:herotextin .5s ease-in-out forwards;";
+                        document.getElementById("top_menu_search").style = "color:#333;";
+                        document.getElementById("bugger_line1").style = "background:#333;";
+                        document.getElementById("bugger_line2").style = "background:#333;";
+
+                    }
+
+
+                }
+
+
+
+
+
+                if (scrollMove > 0) {
+                    if (window.pageYOffset > 80) {
+                        document.getElementById("gnb_wrap").style = "height:80px;";
+                        document.getElementById("gnb").style = "position:fixed;height:80px;background-color: rgba(255, 255, 255, 0.95);color: #333;transition: background-color 0.5s cubic-bezier(0.23, 1, 0.32, 1);"
+
+                        document.getElementById("gnb_logo_icon").style = "display:none";
+                        document.getElementById("top_menu_search").style = "color:#222;";
+                        document.getElementById("bugger_line1").style = "background:#222;";
+                        document.getElementById("bugger_line2").style = "background:#222;";
+
+
+                    }
+
+
+                }
+            }
+            else { //1025이후부터
+                
+                if (scrollMove < 0) { //스크롤업하면
+                    if (window.pageYOffset < 30) {
+                        document.getElementById("gnb_wrap").style = "height:165px;background-color:none";
+                        document.getElementById("gnb").style = "height:165px";
+                        document.getElementById("logo_ai").style = "color:#333";
+                        document.getElementById("logo_dot").style = "color:#333";
+                        // document.getElementById("logo").style="transform: none;margin-left:0px;";
+                        document.getElementById("gnb_top_menu").style = "top:50%";
+                        document.getElementById("gnb_logo_icon").style = "display:block";
+                        document.getElementById("logo_text_con").style = "animation:herotextin .5s ease-in-out forwards;";
+                        document.getElementById("top_menu_search").style = "color:#333;";
+                        document.getElementById("bugger_line1").style = "background:#333;";
+                        document.getElementById("bugger_line2").style = "background:#333;";
+
+                    }
+                    if (window.pageYOffset < 80) {
+                        document.getElementById("gnb_wrap").style = "height:165px;";
+                        document.getElementById("logo_ai").style = "color:#333";
+                        document.getElementById("logo_dot").style = "color:#333";
+                        // document.getElementById("logo").style="transform: none;margin-left:0px;";
+                        document.getElementById("gnb_logo_icon").style = "display:block";
+                        document.getElementById("logo_text_con").style = "animation:herotextin .5s ease-in-out forwards;";
+                        document.getElementById("top_menu_search").style = "color:#333;";
+                        document.getElementById("bugger_line1").style = "background:#333;";
+                        document.getElementById("bugger_line2").style = "background:#333;";
+
+                    }
+
+
+                }
+
+                if (scrollMove > 0) {
+                    if (window.pageYOffset > 80) {
+                        document.getElementById("gnb_wrap").style = "height:80px;";
+                        document.getElementById("gnb").style = "position:fixed;height:80px;background-color: rgba(255, 255, 255, 0.95);color: #333;transition: background-color 0.5s cubic-bezier(0.23, 1, 0.32, 1);"
+                        document.getElementById("gnb_logo_icon").style = "display:block";
+                        document.getElementById("logo_text_con").style = "animation:herotextout .1s ease-in-out forwards;";
+                        // document.getElementById("logo").style="width:40px;margin-left: -45px;";
+                        document.getElementById("logo_ai").style = "color:#222;font-size:50px !important";
+                        document.getElementById("logo_dot").style = "color:#222;font-size:50px !important;line-height:65px";
+                        document.getElementById("top_menu_search").style = "color:#222;";
+                        document.getElementById("bugger_line1").style = "background:#222;";
+                        document.getElementById("bugger_line2").style = "background:#222;";
+
+
+                    }
+
+
+                }
+            }
+            }
+
+
+
+            scrollPoint = window.scrollY;
+
+            projectsSection = document.getElementById('hero_slide').offsetTop;
+            reSearchSection = document.getElementById('hero_research').offsetTop;
+            nuguSection = document.getElementById('nugu').offsetTop;
+            rndSection = document.getElementById('rnd').offsetTop;
+            peopleSection = document.getElementById('people_slide').offsetTop;
+            aixSection = document.getElementById('aix').offsetTop;
+            joinSection = document.getElementById('join').offsetTop;
+
+            console.log(scrollPoint);
+
+    if(prac == 0){
+            
+            if (scrollMove > 0) {
+
+                if (scrollPoint >= projectsSection) {
+                    document.getElementById('gnb_hero_indicator1').style = "animation:indicatorcenter 0.3s forwards"
+                    document.getElementById('gnb_indicator_wrap_id').style = "animation:fadein 0.3s forwards"
+                }
+
+
+                if (scrollPoint >= reSearchSection) {
+                    document.getElementById('gnb_hero_indicator1').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator2').style = "animation:indicatorcenter 0.3s forwards"
+                }
+
+                if (scrollPoint >= nuguSection) {
+                    document.getElementById('gnb_hero_indicator2').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator3').style = "animation:indicatorcenter 0.3s forwards"
+                }
+                if (scrollPoint >= rndSection) {
+                    document.getElementById('gnb_hero_indicator3').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator4').style = "animation:indicatorcenter 0.3s forwards"
+                }
+                if (scrollPoint >= peopleSection) {
+                    document.getElementById('gnb_hero_indicator4').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator5').style = "animation:indicatorcenter 0.3s forwards"
+                }
+                if (scrollPoint >= aixSection) {
+                    document.getElementById('gnb_hero_indicator5').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator6').style = "animation:indicatorcenter 0.3s forwards"
+                }
+
+
+                if (scrollPoint + 400 >= joinSection) {
+                    document.getElementById('gnb_hero_indicator6').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator7').style = "animation:indicatorcenter 0.3s forwards"
+                }
+            }
+
+
+            if (scrollMove < 0) {
+
+                if (scrollPoint < projectsSection) {
+                    document.getElementById('gnb_hero_indicator1').style = "animation:indicatorup 0.3s forwards"
+                    document.getElementById('gnb_indicator_wrap_id').style = "animation:fadeout 0.3s forwards"
+                }
+
+                if (scrollPoint < reSearchSection) {
+
+                    document.getElementById('gnb_hero_indicator2').style = "animation:indicatorcentertodown 0.3s forwards"
+
+                    document.getElementById('gnb_hero_indicator1').style = "animation:indicatortoptocenter 0.3s forwards"
+                }
+                if (scrollPoint < nuguSection) {
+
+
+                    document.getElementById('gnb_hero_indicator3').style = "animation:indicatorcentertodown 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator2').style = "animation:indicatortoptocenter 0.3s forwards"
+                }
+                if (scrollPoint < rndSection) {
+
+
+                    document.getElementById('gnb_hero_indicator4').style = "animation:indicatorcentertodown 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator3').style = "animation:indicatortoptocenter 0.3s forwards"
+                }
+                if (scrollPoint < peopleSection) {
+
+
+                    document.getElementById('gnb_hero_indicator5').style = "animation:indicatorcentertodown 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator4').style = "animation:indicatortoptocenter 0.3s forwards"
+                }
+                if (scrollPoint < aixSection) {
+
+                    document.getElementById('gnb_hero_indicator6').style = "animation:indicatorcentertodown 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator5').style = "animation:indicatortoptocenter 0.8s forwards"
+                }
+                if (scrollPoint + 400 < joinSection) {
+                    document.getElementById('gnb_hero_indicator6').style = "animation:indicatortoptocenter 0.3s forwards"
+                    document.getElementById('gnb_hero_indicator7').style = "animation:indicatorcentertodown 0.3s forwards"
+                }
+            }
+        }
+
+        }//스크롤할때이벤트들끝
+    </script> -->
+
 </head>
 <body>
     <header id="header">
@@ -396,7 +694,7 @@ if (window.pageYOffset > 200)
             <div class="item" data-dot="05"><img src="img/sk-aic_philosophy-kv-5.jpg"></div>
          </div>
          <div class="talk_box">
-           <p class="ment">“Deep Care” ensures that AI-powered innovations have a real-world impact in our lives, the lives of our colleagues, and society as well.</p>
+           <p class="ment">"Deep Care" ensures that AI-powered innovations have a real-world impact in our lives, the lives of our colleagues, and society as well.</p>
            <div class="owl-nav txt">
             <button type="button" role="presentation" class="owl-prev" id="pv" onclick="opacity(prev)">
                 <i class="icon-arrow-left_tail"></i>
@@ -619,6 +917,7 @@ if (window.pageYOffset > 200)
    
 
     </main>
+    
     <footer id="footer">
         <div class="footer_wrap">
               <div class="footer_logo">
@@ -645,6 +944,8 @@ if (window.pageYOffset > 200)
 	
 	 var burgerState = 0;
 
+     var prac = 0;
+
         function buggerIcon() {
 
             if (burgerState == 0) {
@@ -652,7 +953,17 @@ if (window.pageYOffset > 200)
                 document.getElementById('main').style = "display:none";
                 document.getElementById('footer').style = "display:none";
                 document.getElementById('lnb').style = "display:block";
-
+                document.getElementById('header').style = "height:300px;"
+                document.getElementsByClassName('gnb_indicator_wrap')[0].style = "color:#333;"
+                document.getElementById('gnb_wrap').style = "height:160px;"
+                document.getElementById('gnb_logo_icon').style = "display:block;"
+                document.getElementById('gnb').style ="background-color:transparent;"
+                document.getElementById('top_menu_search').style = "color:333;"
+                document.getElementById('ph_indicator').style = "opacity:0; color:#333;";
+                // document.getElementById('logo_ai').style = "color:black;"
+                // document.getElementById('logo_dot').style = "color:black;"
+                // document.getElementById('logo_text').style = "color:black;"
+                
                 document.getElementById('logo_ai').style = "color : #333"
                 document.getElementById('logo_dot').style = "color : #333"
                 document.getElementById('logo_text_con').style = "color : #333"
@@ -661,26 +972,40 @@ if (window.pageYOffset > 200)
                 document.getElementById('bugger_line2').style = "animation: buggeropen2 .8s backwards;transform: translate(-50%, -50%) rotate(-45deg); background : #333;"
 
                 burgerState = 1;
+                
+                prac = 1;
 
             } else if (burgerState == 1) {
 
                 document.getElementById('main').style = "display:block";
                 document.getElementById('footer').style = "display:block";
                 document.getElementById('lnb').style = "display:none";
+                document.getElementById('header').style = "height:auto;"
+                document.getElementsByClassName('gnb_indicator_wrap')[0].style = "color:#333;"
+                document.getElementById('gnb_wrap').style = "height:160px;"
+                document.getElementById('gnb_logo_icon').style = "display:block;"
+                document.getElementById('gnb').style ="background-color:transparent;"
+                 document.getElementById('top_menu_search').style = "color:#333;"
+                document.getElementById('ph_indicator').style = "opacity:0;";
+                // document.getElementById('logo_ai').style = "color:white;"
+                // document.getElementById('logo_dot').style = "color:white;"
+                // document.getElementById('logo_text').style = "color:white;"
 
                 document.getElementById('logo_ai').style = "color : #333"
                 document.getElementById('logo_dot').style = "color : #333"
                 document.getElementById('logo_text_con').style = "color : #333"
-
                 document.getElementById('bugger_line1').style = "animation: buggerclose1 .8s backwards;transform: translate(-50%, 230%) rotate(0deg); background : #333;"
                 document.getElementById('bugger_line2').style = "animation: buggerclose2 .8s backwards;transform: translate(-50%, -230%) rotate(0deg); background : #333;"
 
                 burgerState = 0;
+                
+                prac = 0;
             }
 
 
 
         };
+
 	function subMenuShow(subMenuNumber) {
 
             if (window.innerWidth > 1200) {

@@ -60,7 +60,7 @@ transform: translateY(-50%);z-index:999}
 /* lnb */
 
 #lnb{ 
-  font: inherit;
+  /* font: inherit;
   vertical-align: baseline;
   color: inherit;
   text-decoration: inherit;
@@ -78,7 +78,27 @@ transform: translateY(-50%);z-index:999}
   left: 0px;
   right: 0px;
   display: none;
-  opacity: 1;
+  opacity: 1; */
+	font: inherit;
+    vertical-align: baseline;
+    color: inherit;
+    text-decoration: inherit;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    padding: 23vh 0 100px 230px;
+    background-color: #fff;
+    font-size: 46px;
+    line-height: 1.43;
+    z-index: 999;
+    transition: opacity .6s;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    display: none;
+    opacity: 1;
+    
 }
 
 .lnb_ul li a{
@@ -401,6 +421,9 @@ to {opacity: 1;}
 }
 @media screen and (max-width: 768px){
   #logo_text {visibility: hidden;}
+    .gnb_wrap_m{
+        height : 50px !important;
+    }
   #gnb_wrap{height:72px}
   #gnb{height:50px}
   #gnb_logo_icon{transform: scale(0.6);top:-10%;left: -100px;}

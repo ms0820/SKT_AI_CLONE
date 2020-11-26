@@ -65,7 +65,9 @@
         x=window.matchMedia("(max-width:768px)");
         y=window.matchMedia("(max-width:1024px)");
         
-        
+         if(prac == 0){
+             
+             
         if(x.matches){ //768이하
             //768이하 평소에는
                     document.getElementById("gnb_wrap").style="height:72px;";
@@ -210,6 +212,7 @@
         }  
         
         }
+         }
         
          }//스크롤할때이벤트들끝
 
@@ -252,7 +255,7 @@
                 </li>
                 <li onmouseover="subMenuShow(2)" onmouseout="subMenuOut(2)"><a href="#" class="lnb_a">Projects</a>
                 </li>
-                <li onmouseover="subMenuShow(3)" onmouseout="subMenuOut(3)"><a href="joinus/joinus.html" class="lnb_a">Join Us</a>
+                <li onmouseover="subMenuShow(3)" onmouseout="subMenuOut(3)"><a href="joinus.html" class="lnb_a">Join Us</a>
                 </li>
                 <li onmouseover="subMenuShow(4)" onmouseout="subMenuOut(4)"><a href="#" class="lnb_a">Press/Blog</a>
                 </li>
@@ -1091,7 +1094,9 @@
 
 
         //burgermenuicon
-        var burgerState = 0;
+ 	 var burgerState = 0;
+
+     var prac = 0;
 
         function buggerIcon() {
 
@@ -1100,7 +1105,17 @@
                 document.getElementById('main').style = "display:none";
                 document.getElementById('footer').style = "display:none";
                 document.getElementById('lnb').style = "display:block";
-
+                document.getElementById('header').style = "height:300px;"
+                document.getElementsByClassName('gnb_indicator_wrap')[0].style = "color:#333;"
+                document.getElementById('gnb_wrap').style = "height:160px;"
+                document.getElementById('gnb_logo_icon').style = "display:block;"
+                document.getElementById('gnb').style ="background-color:transparent;"
+                document.getElementById('top_menu_search').style = "color:333;"
+                document.getElementById('ph_indicator').style = "opacity:0; color:#333;";
+                // document.getElementById('logo_ai').style = "color:black;"
+                // document.getElementById('logo_dot').style = "color:black;"
+                // document.getElementById('logo_text').style = "color:black;"
+                
                 document.getElementById('logo_ai').style = "color : #333"
                 document.getElementById('logo_dot').style = "color : #333"
                 document.getElementById('logo_text_con').style = "color : #333"
@@ -1109,26 +1124,68 @@
                 document.getElementById('bugger_line2').style = "animation: buggeropen2 .8s backwards;transform: translate(-50%, -50%) rotate(-45deg); background : #333;"
 
                 burgerState = 1;
+                
+                prac = 1;
 
             } else if (burgerState == 1) {
 
                 document.getElementById('main').style = "display:block";
                 document.getElementById('footer').style = "display:block";
                 document.getElementById('lnb').style = "display:none";
+                document.getElementById('header').style = "height:auto;"
+                document.getElementsByClassName('gnb_indicator_wrap')[0].style = "color:#333;"
+                document.getElementById('gnb_wrap').style = "height:160px;"
+                document.getElementById('gnb_logo_icon').style = "display:block;"
+                document.getElementById('gnb').style ="background-color:transparent;"
+                 document.getElementById('top_menu_search').style = "color:#333;"
+                document.getElementById('ph_indicator').style = "opacity:0;";
+                // document.getElementById('logo_ai').style = "color:white;"
+                // document.getElementById('logo_dot').style = "color:white;"
+                // document.getElementById('logo_text').style = "color:white;"
 
-                document.getElementById('logo_ai').style = "color : #fff"
-                document.getElementById('logo_dot').style = "color : #fff"
-                document.getElementById('logo_text_con').style = "color : #fff"
-
-                document.getElementById('bugger_line1').style = "animation: buggerclose1 .8s backwards;transform: translate(-50%, 230%) rotate(0deg); background : #fff;"
-                document.getElementById('bugger_line2').style = "animation: buggerclose2 .8s backwards;transform: translate(-50%, -230%) rotate(0deg); background : #fff;"
+                document.getElementById('logo_ai').style = "color : #333"
+                document.getElementById('logo_dot').style = "color : #333"
+                document.getElementById('logo_text_con').style = "color : #333"
+                document.getElementById('bugger_line1').style = "animation: buggerclose1 .8s backwards;transform: translate(-50%, 230%) rotate(0deg); background : #333;"
+                document.getElementById('bugger_line2').style = "animation: buggerclose2 .8s backwards;transform: translate(-50%, -230%) rotate(0deg); background : #333;"
 
                 burgerState = 0;
+                
+                prac = 0;
             }
 
+        };
+      
+      	function subMenuShow(subMenuNumber) {
 
+            if (window.innerWidth > 1200) {
+
+                for (i = 0; i < 7; i++) {
+                    document.getElementsByClassName('header_copy')[i].style = "display:none;"
+                    document.getElementsByClassName('lnb_a')[subMenuNumber].style = "font-weight:400"
+                }
+
+                document.getElementsByClassName('header_copy')[subMenuNumber].style = "display:block;"
+
+                document.getElementsByClassName('lnb_a')[subMenuNumber].style = "font-weight:600"
+
+            } else[
+                document.getElementsByClassName('lnb_a')[subMenuNumber].style = "font-weight:600"
+            ]
 
         }
+
+
+        function subMenuOut(subMenuNumber) {
+
+            if (window.innerWidth > 1200) {
+                document.getElementsByClassName('header_copy')[subMenuNumber].style = "display:none"
+                document.getElementsByClassName('lnb_a')[subMenuNumber].style = "font-weight:400"
+            } else{
+                document.getElementsByClassName('lnb_a')[subMenuNumber].style = "font-weight:400"
+            }
+        }
+    
 
     </script>
 
